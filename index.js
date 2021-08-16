@@ -1,4 +1,4 @@
-const config = require("./config.json");
+const config = require('dotenv').config();
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
@@ -11,7 +11,9 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
-const { prefix, token, currency_prefix } = config;
+const prefix = process.env.prefix;
+const token = process.env.TOKEN;
+const currency_prefix= process.env.CURRENCY_PREFIX;
 
 client.on("message", function(message) {
   if (message.author.bot) return;
