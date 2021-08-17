@@ -64,7 +64,6 @@ async function obtenerPrecio(command, message){
       let id= coins[i].id;
       let price = await CoinGeckoClient.simple.price({ids:coins[i].id});
       message.reply(`Por cada ${command} podria darte U$D ${price.data[id].usd} y me estoy arriesgando`);
-      console.log(price);
       return;
     }
   }
