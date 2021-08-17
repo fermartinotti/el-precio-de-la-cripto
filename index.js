@@ -13,7 +13,7 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
-const prefix = process.env.prefix;
+const prefix = process.env.PREFIX;
 const token = process.env.TOKEN;
 const currency_prefix= process.env.CURRENCY_PREFIX;
 
@@ -27,8 +27,10 @@ client.on("message", function(message) {
   }
 
   if(esUnComando(message)){
+    console.log("es un comando");
     comando(command, message);
   }else if(esUnPedidoDePrecio(message)){
+    console.log("es un precio");
     obtenerPrecio(command, message);
   }else{
     return;
