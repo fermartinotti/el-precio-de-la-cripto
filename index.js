@@ -69,7 +69,7 @@ async function obtenerPrecio(command, message){
     }
   }
 
-  message.reply("No tengo el precio de esa criptomenda, ¿necesitas que llame a un experto?");
+  message.reply("No existe esa criptomenda, ¿necesitas que llame a un experto?");
 
 }
 
