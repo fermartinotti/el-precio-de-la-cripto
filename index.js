@@ -18,6 +18,7 @@ const token = process.env.TOKEN;
 const currency_prefix= process.env.CURRENCY_PREFIX;
 
 client.on("message", function(message) {
+  console.log("entro al client ON");
   if (message.author.bot) return;
   if(message.content.startsWith(prefix) || message.content.startsWith(currency_prefix)){
     commandBody = message.content.slice(prefix.length);
