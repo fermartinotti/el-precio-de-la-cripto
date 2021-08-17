@@ -45,6 +45,7 @@ function esUnPedidoDePrecio(message){
 
 function comando(command, message){
   if (command === "ping") {
+    console.log("llego al ping");
     const timeTaken = Date.now() - message.createdTimestamp;
     message.reply(`Este mensaje tuvo una latencia de ${timeTaken}ms.`);
   }else if (command === "experto"){
