@@ -2,6 +2,8 @@ const config = require('dotenv').config();
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const CoinGecko = require('coingecko-api');
+const CoinGeckoClient = new CoinGecko();
 
 var commandBody;
 var args;
@@ -23,15 +25,23 @@ client.on("message", function(message) {
     command = args.shift().toLowerCase();
   }
 
-  if(message.content.startsWith(prefix)){
+  if(esUnComando(message)){
     comando(command, message);
-  }else if(message.content.startsWith(currency_prefix)){
-    precio(command, message);
+  }else if(esUnPedidoDePrecio(message)){
+    obtenerPrecio(command, message);
   }else{
     return;
   }
 
 });
+
+function esUnComando(message){
+  return message.content.startsWith(prefix);
+}
+
+function esUnPedidoDePrecio(message){
+  return message.content.startsWith(currency_prefix);
+}
 
 function comando(command, message){
   if (command === "ping") {
@@ -42,12 +52,26 @@ function comando(command, message){
   }
 }
 
-function precio(command, message){
-  message.channel.send(`Usted pidio el precio de ${command}`);
+async function obtenerPrecio(command, message){
+  //message.channel.send(`Usted pidio el precio de ${command}`);
+
+  let data= await CoinGeckoClient.coins.list();
+  
+  let coins= data.data;
+
+  for (var i = 0; i < coins.length; i++) {
+    if(coins[i].symbol === command ){
+      let id= coins[i].id;
+      let price = await CoinGeckoClient.simple.price({ids:coins[i].id});
+      message.reply(`Por cada ${command} podria darte U$D ${price.data[id].usd} y me estoy arriesgando`);
+      console.log(price);
+      return;
+    }
+  }
+
+  message.reply("No existe esa criptomenda, ¿necesitas que llame a un experto?");
+
 }
 
 
 client.login(token);
-
-
-
