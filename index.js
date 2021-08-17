@@ -1,4 +1,5 @@
 const config = require('dotenv').config();
+const http = require('http');
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
@@ -16,6 +17,14 @@ client.once('ready', () => {
 const prefix = process.env.prefix;
 const token = process.env.TOKEN;
 const currency_prefix= process.env.CURRENCY_PREFIX;
+
+http.createServer((req, res) => {
+  res.writeHead(200, {
+      'Content-type': 'text/plain'
+  });
+      res.write('Hey');
+      res.end();
+  }).listen(4000);
 
 client.on("message", function(message) {
   if (message.author.bot) return;
