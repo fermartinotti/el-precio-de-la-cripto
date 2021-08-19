@@ -18,8 +18,6 @@ Llama a un experto para que te de una mano.
 - $simbolo ej: $BTC
 Podes consultarle al experto en criptomonedas el precio de cualquier cripto. 
 
-
-
   
 ## Environment Variables
 
@@ -57,12 +55,6 @@ Start the server
 ```bash
   node .
 ```
-
-  
-## Support
-
-For support, email fake@fake.com or join our Slack channel.
-
   
 ## Feedback o mejoras
 
