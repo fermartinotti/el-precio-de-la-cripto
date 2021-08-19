@@ -4,7 +4,8 @@
 Bot de discord que nos informa el precio actual de cualquier 
 criptoactivo listado en Coingecko.
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![bot screenshot](https://github.com/fermartinotti/el-precio-de-la-cripto/blob/main/assets/bot.png)
+![bot_example](https://github.com/fermartinotti/el-precio-de-la-cripto/blob/main/assets/interaccion.png)
 
   ## ¿Integraciones o dependencias? si, las siguientes:
 **discordJS** Modulo para interactuar con discord.
