@@ -7,7 +7,7 @@ criptoactivo listado en Coingecko.
 ![bot screenshot](https://github.com/fermartinotti/el-precio-de-la-cripto/blob/main/assets/bot.png)
 ![bot_example](https://github.com/fermartinotti/el-precio-de-la-cripto/blob/main/assets/interaccion.PNG)
 
-  ## ¿Integraciones o dependencias? si, las siguientes:
+  ## ¿Integraciones y dependencias? las siguientes:
 **discordJS** Modulo para interactuar con discord.
 
 **coingecko-api** Modulo de integracion con coingecko para obtener la informacion de las criptomonedas.
