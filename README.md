@@ -7,6 +7,9 @@ criptoactivo listado en Coingecko.
 ![bot screenshot](https://github.com/fermartinotti/el-precio-de-la-cripto/blob/main/assets/bot.png)
 ![bot_example](https://github.com/fermartinotti/el-precio-de-la-cripto/blob/main/assets/interaccion.PNG)
 
+## Probalo! Sumalo a tu canal
+[https://discord.com/oauth2/authorize?client_id=876520432612806707&permissions=0&scope=bot](https://discord.com/oauth2/authorize?client_id=876520432612806707&permissions=0&scope=bot)
+
   ## ¿Integraciones y dependencias? las siguientes:
  [**discordJS**](https://discord.js.org/)
 
@@ -59,6 +62,6 @@ Start the server
   
 ## Feedback o mejoras
 
-Si tenes algun feedback o mejora que aportar al proyecto podes escribirme a mi email personal: fermartinotti@gmail.com o simplemente solicitar un pull request.
+Si tenes algun feedback o mejora que aportar al proyecto podes escribirme a mi email personal: fermartinotti@gmail.com o simplemente abrir un pull request.
 
   
