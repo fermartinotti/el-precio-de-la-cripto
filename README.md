@@ -39,7 +39,7 @@ Para correr el proyecto, es necesario agregar estas variables de entorno a tu .e
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/fermartinotti/el-precio-de-la-cripto
 ```
 
 Go to the project directory
