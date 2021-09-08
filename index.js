@@ -64,30 +64,45 @@ async function obtenerPrecio(command, message){
     if(coins[i].symbol === command ){
       let id= coins[i].id;
       
+      //Asigno toda la data que quiero enviar.
       let fullInfo = await CoinGeckoClient.coins.fetch(id, {tickers: false, community_data: false, developer_data : false, localization: false, sparkline: false});
       let tokenName = fullInfo.data.name;
       let price = fullInfo.data.market_data.current_price.usd;
       let logo= fullInfo.data.image.small;
       let ath= fullInfo.data.market_data.ath.usd;
       let percentageChange24H= fullInfo.data.market_data.price_change_percentage_24h;
-      let percentageChange7D= fullInfo.data.market_data.price_change_percentage_7D;
-      let minPrice24H= fullInfo.data.market_data.high_24h.usd;
-      let maxPrice24H= fullInfo.data.market_data.low_24h.usd;
-      
+      let percentageChange7D= fullInfo.data.market_data.price_change_percentage_7d;
+      let maxPrice24H= fullInfo.data.market_data.high_24h.usd;
+      let minPrice24H= fullInfo.data.market_data.low_24h.usd;
+      var color='';
+      var iconChart='';
+      var iconChart7D= '';
+
+      //asigno variables que cambian depende el valor del precio y el % de variacion para cambiar aspecto del embed.
+      if (percentageChange24H > 0) {
+        color = '21db00';
+        iconChart = '📈 ';
+      }else{
+        color= '#db2800';
+        iconChart =  '📉 ';
+      }
+      percentageChange7D > 0 ? iconChart7D= '📈 ' : iconChart7D= '📉 ';
+
+      //creo un embed y lo envio
       const embed = new MessageEmbed()
-        .setColor('#0099ff')
+        .setColor(color)
         .setTitle(tokenName)
-        .setAuthor('El pelado de las cripto', 'https://resizer.glanacion.com/resizer/xwksLfKOLbhzqo-olQpo9NmropA=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/UP3PWPDXJNBBFIE5EHC5WJG4AY.jpg')
-        .setDescription(`Por cada ${command} podria darte U$D ${price} y me estoy arriesgando`)
+        .setAuthor('El pelado de las cripto 💰', 'https://resizer.glanacion.com/resizer/xwksLfKOLbhzqo-olQpo9NmropA=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/UP3PWPDXJNBBFIE5EHC5WJG4AY.jpg')
+        .setDescription(`Por cada ${command} podria darte U$D 💵 ${price} y me estoy arriesgando`)
         .setThumbnail(logo)
-        /*.addFields(
-          { name: 'Regular field title', value: 'Some value here' },
-          { name: 'Regular field title', value: 'Some value here' },
+        .addFields(
           { name: '\u200B', value: '\u200B' },
-          { name: 'Inline field title', value: 'Some value here', inline: true },
-          { name: 'Inline field title', value: 'Some value here', inline: true },
+          { name: 'ATH 💸', value: `U$D: ${ath}`, inline: true },
+          { name: `ultimas 24Hs ${iconChart}`, value: `% ${percentageChange24H}`, inline: true },
+          { name: `ultimos 7 dias ${iconChart7D}`, value: `% ${percentageChange7D}`, inline: true },
+          { name: 'min/max ultimas 24hs 📊', value: `U$D: ${minPrice24H} / ${maxPrice24H} `, inline: true },
         )
-          */
+          
       message.channel.send(embed);
       return;
     }
